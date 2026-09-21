@@ -20,6 +20,8 @@ Everything pinned to one voice agent.
 | [config/mcp.rubyvox.bearer.json](config/mcp.rubyvox.bearer.json) | Same proxy with a bearer token you already hold |
 | [config/acp.json](config/acp.json) | Drop-in for `~/.jetbrains/acp.json` |
 
+Load in the studio: **Prompt Library → Planning**. Four entries: the identity block, the standup, the 7-day leads pull, and the draft-only follow-up texts.
+
 ## Which string goes where
 
 | Paste this | Where |

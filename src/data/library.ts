@@ -1,6 +1,6 @@
 import type { AimFields } from '~/lib/aim'
 
-export type LibraryCategory = 'role' | 'strategy' | 'writing' | 'techniques'
+export type LibraryCategory = 'role' | 'strategy' | 'writing' | 'techniques' | 'planning'
 
 export interface LibraryPrompt {
   id: string
@@ -15,6 +15,7 @@ export const LIBRARY_CATEGORIES: { key: LibraryCategory; label: string; blurb: s
   { key: 'strategy', label: 'Strategy', blurb: 'Mission and reasoning scaffolds for decisions and plans.' },
   { key: 'writing', label: 'Writing', blurb: 'Drafting, editing and tone-matching prompts.' },
   { key: 'techniques', label: 'Techniques', blurb: 'Reusable prompting patterns: critique loops, rubrics, extraction.' },
+  { key: 'planning', label: 'Planning', blurb: 'Operator packs and runbooks: identity blocks, standups, follow-ups. Files live in prompts/.' },
 ]
 
 export const LIBRARY: LibraryPrompt[] = [
@@ -147,6 +148,58 @@ export const LIBRARY: LibraryPrompt[] = [
       mission: 'Find the weakest points in the argument in the input.',
       reasoning: 'Steelman the argument first in two sentences. Then list the three strongest objections, ranked by how much damage they do if true.',
       format: 'Steelman, then a ranked list of objections with a one-line test for each.',
+    },
+  },
+  {
+    id: 'planning-rubyvox-dph-identity',
+    category: 'planning',
+    title: 'RubyVox operator: The Dallas Play House',
+    summary: 'Identity block to open every MCP operator chat. Pack: prompts/rubyvox-dallas-playhouse.',
+    fields: {
+      actor: 'You are operating my RubyVox voice agent via MCP. You act on one agent only and you never invent tools.',
+      input:
+        'Agent name: The Dallas Play House\nAgent UUID: 542e1ccb-c597-4dd1-bdeb-7f0236ca59cd\nCaller page: https://rubyvox.com/a/542e1ccb-c597-4dd1-bdeb-7f0236ca59cd\nPhone: (509) 808-8801\nMCP: https://rubyvox.com/mcp',
+      mission: 'Discover the RubyVox tools you actually have, confirm you can see this agent by name or UUID, and report its current status.',
+      kiss: 'Do not invent tools. If a tool is missing, say so. Do not change voice, knowledge, or public copy unless explicitly asked. The caller page is never an MCP server.',
+      reasoning: '1. List available RubyVox tools. 2. Find the agent by name or UUID. 3. Stop and report if either step fails.',
+      format: 'Agent status in two sentences, then the exact tool names you have as a bullet list.',
+    },
+  },
+  {
+    id: 'planning-rubyvox-dph-standup',
+    category: 'planning',
+    title: 'Dallas Play House standup',
+    summary: 'Last 24 hours of calls, bookings and messages, read-only.',
+    fields: {
+      actor: 'You are operating the RubyVox agent The Dallas Play House (542e1ccb-c597-4dd1-bdeb-7f0236ca59cd) via MCP.',
+      mission: 'Give me the standup for the last 24 hours: calls, bookings, messages sent, and anything I should handle personally.',
+      kiss: 'Read-only. Under 150 words. Two sentences per caller at most. No raw transcripts. If a data source is not a discovered tool, say so instead of guessing.',
+      format: 'Calls, Bookings, Messages, Handle personally. Each a short bullet list.',
+    },
+  },
+  {
+    id: 'planning-rubyvox-dph-leads',
+    category: 'planning',
+    title: 'Dallas Play House leads, 7 days',
+    summary: 'Pull leads and recaps into a next-step table.',
+    fields: {
+      actor: 'You are operating the RubyVox agent The Dallas Play House (542e1ccb-c597-4dd1-bdeb-7f0236ca59cd) via MCP.',
+      mission: 'Pull leads and call recaps for this agent from the last 7 days.',
+      kiss: 'Read-only. One row per caller. No raw transcripts. Unknown values are left blank, not guessed.',
+      format: 'Table with columns: Date, Caller, What they wanted, Next step.',
+    },
+  },
+  {
+    id: 'planning-rubyvox-dph-followup',
+    category: 'planning',
+    title: 'Dallas Play House follow-up texts (draft only)',
+    summary: 'Draft texts to callers who asked to book and did not. Nothing is sent.',
+    fields: {
+      actor: 'You are operating the RubyVox agent The Dallas Play House (542e1ccb-c597-4dd1-bdeb-7f0236ca59cd) via MCP.',
+      mission: 'Draft, but do not send, a follow-up text to each caller who asked to book and did not.',
+      kiss: 'Draft only. One draft per caller, under 320 characters each. Do not call any send tool. Show me every draft before anything goes out.',
+      reasoning: 'Find callers with a booking intent and no booking. For each, name what they asked for and the one next action the text should offer.',
+      format: 'For each caller: name, number, then the draft in a quoted block.',
     },
   },
 ]
