@@ -1,6 +1,6 @@
 import type { AimFields } from '~/lib/aim'
 
-export type LibraryCategory = 'role' | 'strategy' | 'writing' | 'techniques'
+export type LibraryCategory = 'role' | 'strategy' | 'writing' | 'techniques' | 'planning'
 
 export interface LibraryPrompt {
   id: string
@@ -15,6 +15,7 @@ export const LIBRARY_CATEGORIES: { key: LibraryCategory; label: string; blurb: s
   { key: 'strategy', label: 'Strategy', blurb: 'Mission and reasoning scaffolds for decisions and plans.' },
   { key: 'writing', label: 'Writing', blurb: 'Drafting, editing and tone-matching prompts.' },
   { key: 'techniques', label: 'Techniques', blurb: 'Reusable prompting patterns: critique loops, rubrics, extraction.' },
+  { key: 'planning', label: 'Planning', blurb: 'Sidecar kits: the lead template of each pack, with the full kit in prompts/sidecar.' },
 ]
 
 export const LIBRARY: LibraryPrompt[] = [
@@ -147,6 +148,55 @@ export const LIBRARY: LibraryPrompt[] = [
       mission: 'Find the weakest points in the argument in the input.',
       reasoning: 'Steelman the argument first in two sentences. Then list the three strongest objections, ranked by how much damage they do if true.',
       format: 'Steelman, then a ranked list of objections with a one-line test for each.',
+    },
+  },
+  {
+    id: 'planning-sidecar-1-solo-law',
+    category: 'planning',
+    title: 'Sidecar 1: Solo law, employment intake',
+    summary: 'Lead template of the 12-kit solo law pack. Full pack: prompts/sidecar/01-solo-law.aim.md. Drafting aid, not legal advice.',
+    fields: {
+      actor: 'Intake paralegal at a small employment firm. You collect facts. You do not give legal conclusions.',
+      input:
+        'Caller\'s notes: role, employer, dates, protected class if stated, what happened, witnesses, documents, deadline fears. Jurisdiction = [state].',
+      mission: 'Produce a structured intake questionnaire the attorney can use on the first call, plus a one-page fact chronology.',
+      kiss: 'Questions only, numbered. Flag statutes of limitation as "confirm with attorney," never as advice. No "you have a case." Missing facts are listed as "unknown, ask."',
+      reasoning: '1. Parties and dates. 2. Conduct timeline. 3. Harm and documents. 4. Adverse action. 5. Gaps.',
+      format: '1. Parties 2. Chronology (date, fact, source) 3. Questions to ask (max 20) 4. Documents to request 5. Risks and deadlines for attorney review',
+      examples: 'Good: "Q7: Exact date of termination and who said it. Unknown = ask."\nBad: "This is a clear wrongful-termination case."',
+    },
+  },
+  {
+    id: 'planning-sidecar-2-shopify-ops',
+    category: 'planning',
+    title: 'Sidecar 2: Shopify ops, PDP product copy',
+    summary: 'Lead template of the 8-kit Shopify ops retainer. Full pack: prompts/sidecar/02-shopify-ops.aim.md.',
+    fields: {
+      actor: 'DTC copywriter for a Shopify catalog. Conversion and returns-honesty, not hype.',
+      input: 'Product title, materials, sizes, price, 3 differentiators, top complaint, brand voice words.',
+      mission: 'Write a PDP: hook, benefits, specs, objection, CTA. Match the voice words.',
+      kiss: 'No "unlock," "elevate," "premium experience." Specs in a list. One objection handled (returns, fit, or shipping). Body under 180 words.',
+      reasoning: 'Hook from a differentiator, then proof, then spec table, then objection, then CTA.',
+      format: 'Title options (3) | Body | Spec bullets | FAQ (3) | CTA',
+      examples:
+        'Good: "Washes cold, hangs dry. Pilling is why we skip the dryer, not because the knit is fragile."\nBad: "You\'ll fall in love with this luxurious essential."',
+    },
+  },
+  {
+    id: 'planning-sidecar-3-adjuster',
+    category: 'planning',
+    title: 'Sidecar 3: Independent adjuster, water-loss narrative',
+    summary: 'Lead template of the 9-kit adjuster pack. Full pack: prompts/sidecar/03-independent-adjuster.aim.md. Not a coverage opinion.',
+    fields: {
+      actor: 'Independent property adjuster writing a first-notice narrative for a carrier desk. Factual, chronological, inspect-what-you-saw.',
+      input:
+        'Date of loss, date of inspect, occupancy, origin if stated by insured, rooms affected, moisture readings, photos listed by filename, weather if known.',
+      mission: 'A 4 to 7 paragraph narrative a desk can accept: how you got there, what you saw, measurements, what you did not determine.',
+      kiss: 'No "coverage should be afforded." No "this is sudden and accidental" unless quoting the insured. Unknown = "not determined at inspection." Photo refs like P03 kitchen baseboard.',
+      reasoning: 'Access, then origin statement vs observation, then path of water, then affected materials, then readings, then remaining questions.',
+      format: 'Header (claim #, DOL, inspect date) | Narrative | Photo index | Open items for desk',
+      examples:
+        'Good: "At inspect, kitchen sink supply line showed corrosion at the angle stop (P04). Moisture 28% in the toe-kick, 11% in the hallway, dry at the living-room carpet edge."\nBad: "This is clearly a covered sudden plumbing failure and should be paid in full."',
     },
   },
 ]
