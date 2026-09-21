@@ -31,7 +31,6 @@ Skip adjectives (“be professional”). Put a good/bad pair in Examples. Models
 
 | Job | Technique |
 |---|---|
-| RubyVox operator (Planning) | Actor lock + ReAct: discover tools first, never invent an Observation |
 | Messy capture → seven fields | Enhance = JSON contract + delimiter |
 
 ## Rules that move quality

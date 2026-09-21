@@ -9,7 +9,7 @@ Dump messy notes, **AI Enhance** into the seven fields, **Run** on platform Grok
 - Quick capture → Enhance (rebuilds from capture)
 - Live preview, Run with Grok, copy output → History
 - Hybrid RAG Knowledge lab
-- Prompt library (role, strategy, writing, techniques, planning)
+- Prompt library (role, strategy, writing, techniques)
 - Settings for Grok / Claude (Claude when `ANTHROPIC_API_KEY` is injected)
 - Auth + optional Stripe later; models are open in this preview
 
