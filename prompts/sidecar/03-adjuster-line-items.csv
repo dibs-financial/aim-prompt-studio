@@ -1,0 +1,4 @@
+claim_id,room,trade,line,qty,unit,qty_basis,photo_ref,justification,alternative_if_rejected,status
+2026-WL-001,Kitchen,Drywall,Replace drywall,12,SF,4x3 cut-out wet to 18in,P07,Moisture 28% in toe-kick; cut to dry wall,Clean and dry only if desk moisture <16%,draft
+2026-WL-001,Kitchen,Cabinetry,Refinish base cabinets,8,LF,Base run along wet wall,P04-P06,Faces stained; boxes sound - refinish not replace,Replace if delam documented in Pxx,draft
+2026-WL-001,Hall,Flooring,Clean carpet,40,SF,Hall run to living-room edge,P08,Moisture 11% - clean not replace,None,draft

@@ -18,7 +18,7 @@ Skip adjectives (“be professional”). Put a good/bad pair in Examples. Models
 
 ## The eight in the studio
 
-1. **Few-shot (good vs bad)** — 2–4 contrastive pairs beat a paragraph of rules.
+1. **Few-shot (good vs bad)** — 2–4 contrastive pairs beat a paragraph of rules. Sidecar kits use this.
 2. **Chain of thought** — numbered steps, answer last. Trade-offs, math, diagnosis. Skip for rewrites.
 3. **Least-to-most** — easy subproblem first; later steps reuse answers. Use when one-shot collapses.
 4. **Self-critique** — draft, score against the contract, rewrite misses. Cite Format/K.I.S.S., not taste.
@@ -27,11 +27,14 @@ Skip adjectives (“be professional”). Put a good/bad pair in Examples. Models
 7. **Output contract (JSON)** — one object, no fences. Enhance uses this for the seven boxes.
 8. **Delimiter / XML packing** — untrusted text in `<input>`. Data, not instructions.
 
-## When to use which
+## When to use which (sidecar)
 
 | Job | Technique |
 |---|---|
-| RubyVox operator (Planning) | Actor lock + ReAct: discover tools first, never invent an Observation |
+| Law demand-letter outline | Few-shot + K.I.S.S. (“no cites you didn’t receive”) |
+| Shopify PDP | Format + Examples; **no** CoT |
+| Adjuster narrative | Actor lock + RAG if you paste policy + self-critique vs “no coverage opinion” |
+| Pick Shopify vs law vs IA | Least-to-most or Trade-off canvas (Strategy) |
 | Messy capture → seven fields | Enhance = JSON contract + delimiter |
 
 ## Rules that move quality
