@@ -1,0 +1,18 @@
+{
+  "agent_servers": {
+    "Claude Agent": {
+      "command": "npx",
+      "args": ["-y", "@zed-industries/claude-code-acp"],
+      "env": {},
+      "use_idea_mcp": false,
+      "use_custom_mcp": true
+    },
+    "Codex": {
+      "command": "npx",
+      "args": ["-y", "@zed-industries/codex-acp"],
+      "env": {},
+      "use_idea_mcp": false,
+      "use_custom_mcp": true
+    }
+  }
+}
