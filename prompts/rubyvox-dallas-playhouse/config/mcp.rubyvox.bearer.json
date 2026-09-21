@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "rubyvox": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://rubyvox.com/mcp",
+        "--header",
+        "Authorization: Bearer REPLACE_ME"
+      ]
+    }
+  }
+}
